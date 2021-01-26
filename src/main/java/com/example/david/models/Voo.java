@@ -5,8 +5,6 @@
  */
 package com.example.david.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
 import java.time.LocalDate;
 import javax.persistence.Entity;
@@ -14,15 +12,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
 /**
  *
  * @author David
  */
 @Entity
-@Table(name = "tb_voo")
 public class Voo implements Serializable {
 
     @Id
@@ -42,11 +37,11 @@ public class Voo implements Serializable {
     private Piloto piloto;
 
     @ManyToOne
-    private Companhia_Aerea companhia;
+    private Companhia companhia;
 
-    private LocalDate data_partida;
-    private LocalDate data_chegada;
-    private int num_voo;
+    private LocalDate datapartida;
+    private LocalDate datachegada;
+    private int numerovoo;
     private Double preco;
 
     public long getId() {
@@ -89,36 +84,36 @@ public class Voo implements Serializable {
         this.piloto = piloto;
     }
 
-    public Companhia_Aerea getCompanhia() {
+    public Companhia getCompanhia() {
         return companhia;
     }
 
-    public void setCompanhia(Companhia_Aerea companhia) {
+    public void setCompanhia(Companhia companhia) {
         this.companhia = companhia;
     }
 
-    public LocalDate getData_partida() {
-        return data_partida;
+    public LocalDate getDatapartida() {
+        return datapartida;
     }
 
-    public void setData_partida(LocalDate data_partida) {
-        this.data_partida = data_partida;
+    public void setDatapartida(LocalDate datapartida) {
+        this.datapartida = datapartida;
     }
 
-    public LocalDate getData_chegada() {
-        return data_chegada;
+    public LocalDate getDatachegada() {
+        return datachegada;
     }
 
-    public void setData_chegada(LocalDate data_chegada) {
-        this.data_chegada = data_chegada;
+    public void setDatachegada(LocalDate datachegada) {
+        this.datachegada = datachegada;
     }
 
-    public int getNum_voo() {
-        return num_voo;
+    public int getNumerovoo() {
+        return numerovoo;
     }
 
-    public void setNum_voo(int num_voo) {
-        this.num_voo = num_voo;
+    public void setNumerovoo(int numerovoo) {
+        this.numerovoo = numerovoo;
     }
 
     public Double getPreco() {

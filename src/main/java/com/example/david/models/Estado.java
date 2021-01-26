@@ -5,22 +5,19 @@
  */
 package com.example.david.models;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  *
  * @author David
  */
 @Entity
-@Table(name = "tb_estado")
 public class Estado implements Serializable {
 
     @Id
@@ -28,9 +25,6 @@ public class Estado implements Serializable {
     private long id;
     private String nome;
     private String uf;
-
-    @OneToMany(mappedBy = "estado")
-    private List<Cidade> cidade;
 
     public long getId() {
         return id;
@@ -54,14 +48,6 @@ public class Estado implements Serializable {
 
     public void setUf(String uf) {
         this.uf = uf;
-    }
-
-    public List<Cidade> getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(List<Cidade> cidade) {
-        this.cidade = cidade;
     }
 
 }
